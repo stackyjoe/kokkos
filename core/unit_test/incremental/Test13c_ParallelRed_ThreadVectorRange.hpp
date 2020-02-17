@@ -80,7 +80,6 @@ struct Hierarchical_Red_C {
                 Kokkos::parallel_reduce(
                     Kokkos::ThreadVectorRange(team, sY),
                     [=](const int k, int &tmp) {
-                      //printf("%i,%i,%i ", i, k, n * v.extent(0) + ts * i + k);
                       tmp += n * sX * v.extent(0) + sX * i + k;
                     },
                     out);
@@ -100,8 +99,7 @@ struct Hierarchical_Red_C {
     for (int i = 0; i < pN; ++i) {
       check += v_H(i);
       for (int j = 0; j < sX; ++j)
-        for (int k = 0; k < sY; ++k)
-          ref += i * sX * pN + sX * j + k;
+        for (int k = 0; k < sY; ++k) ref += i * sX * pN + sX * j + k;
     }
     ASSERT_EQ(check, ref);
   }
