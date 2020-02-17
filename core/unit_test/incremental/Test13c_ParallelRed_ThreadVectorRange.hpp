@@ -49,11 +49,6 @@
 #include <gtest/gtest.h>
 #include <Kokkos_Core.hpp>
 
-// Degress of concurrency per nestig level
-#define N 16
-#define M 16
-#define K 16
-
 using SCALAR_TYPE = int;
 
 namespace Test {
